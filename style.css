@@ -285,3 +285,66 @@ span
 	margin-top: 40px;
 	font-size: 35px;
 }
+
+
+@media screen and (max-width: 768px) {
+    .navbar {
+		position: absolute;
+        right: 0;
+        top: 100%;
+        height: 100vh;
+        width: 30%;
+        padding: 1em 1em;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+		position: absolute;
+		align-items: center;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+/* Tablet and Mobile styles */
+/* @media screen and (max-width: 600px) {
+    .full-page {
+        padding: 20px;
+    }
+
+    .form-box {
+        width: 90%;
+    }
+} */
+
+
+
+/* 
+@media (max-width: 500px){
+	.navbar {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--color3);
+    height: 100vh;
+    width: 30%;
+    padding: 1em 1em;
+    display: none;
+	}
+	.nav ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	  }
+	.adminlogin {
+		display: flex;
+		align-items: center;
+	}
+
+
+} */

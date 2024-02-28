@@ -1,8 +1,6 @@
 <?php
-
 $email = $_POST['email'];
 $password = $_POST['password'];
-
 
 $servername = "localhost:3309"; // Update with your correct server name
 $username = "root"; // Update with your correct username
@@ -10,28 +8,20 @@ $password_admin= ""; // Update with your correct password
 $dbname = "budget"; // Update with your correct database name
 
 $conn = mysqli_connect($servername, $username, $password_admin, $dbname);
-
-
 if(!$conn){
     echo "Database connection error";
 }
-
 // $password = mysqli_real_escape_string($conn, $password);
-
-
-
 $sql="select * from adminlogin where adminemail='$email' and password='$password'";
 
+$result= mysqli_query ($conn, $sql);
 
-$result= mysqli_query ($conn,$sql);
-
-
+ session_start();
 
 if(mysqli_num_rows($result)>=1){
     $_SESSION['admin_email'] = $email;
     header("Location:./AdminDashboard/index.php");
 
-    
 }else{
     header("Location:frontpage.php");
 //         exit();

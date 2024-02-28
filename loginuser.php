@@ -3,35 +3,27 @@
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-
 $servername = "localhost:3309"; // Update with your correct server name
 $username = "root"; // Update with your correct username
 $password_admin= ""; // Update with your correct password
 $dbname = "budget"; // Update with your correct database name
 
 $conn = mysqli_connect($servername, $username, $password_admin, $dbname);
-
-
 if(!$conn){
     echo "Database connection error";
 }
 
 // $password = mysqli_real_escape_string($conn, $password);
-
-
-
 $sql="select * from register where email='$email' and password='$password'";
 
-
+ session_start();
+ 
 $result= mysqli_query ($conn,$sql);
-
-
-
+$rowUser= mysqli_fetch_assoc($result);
 if(mysqli_num_rows($result)>=1){
-    $_SESSION['user_email'] = $email;
+    $_SESSION['Username'] = $rowUser['name'];
+  
     header("Location:./Wms/user_dashboard.php");
-
-    
 }else{
     header("Location:frontpage.php");
 //         exit();
@@ -67,6 +59,7 @@ if(mysqli_num_rows($result)>=1){
 //     // Handle database query error
 //     die("Database query failed: " . mysqli_error($your_db_connection));
 // }
+
 
 
 

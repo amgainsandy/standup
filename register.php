@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
         $dbname = "budget"; // Update with your correct database name
         
 
-        $conn = mysqli_connect($servername, $username, $password_admin, $dbname);
+        $conn = mysqli_connect($servername, $username, $password_admin, $dbname);    
 
 
         // Check connection
@@ -37,7 +37,7 @@ if(!$insert){
     echo "data not inserted";
 }
 else{
-    header("Location: frontpage.html");
+    header("Location:frontpage.php");
 }
 
 }
